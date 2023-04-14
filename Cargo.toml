@@ -27,12 +27,18 @@ edition = "2021"
 [features]
 default = ["std", "derive"]
 std = ["alloc", "serde?/std"]
-alloc = ["serde?/alloc"]
+alloc = ["serde?/alloc", "dep:alloc"]
 derive = ["bincode_derive"]
+rustc-dep-of-std = ["core", "alloc", "compiler_builtins"]
 
 [dependencies]
 bincode_derive = { path = "derive", version = "2.0.0-rc.3", optional = true }
 serde = { version = "1.0", default-features = false, optional = true }
+
+# When built as part of libstd
+core = { version = "1.0.0", optional = true, package = 'rustc-std-workspace-core' }
+compiler_builtins = { version = "0.1.2", optional = true }
+alloc = { version = "1.0.0", optional = true, package = 'rustc-std-workspace-alloc' }
 
 # Used for tests
 [dev-dependencies]

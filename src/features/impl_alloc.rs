@@ -49,7 +49,7 @@ impl enc::write::Writer for VecWriter {
 /// Encode the given value into a `Vec<u8>` with the given `Config`. See the [config] module for more information.
 ///
 /// [config]: config/index.html
-#[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
+//#[cfg_attr(docsrs, doc(cfg(feature = "alloc")))]
 pub fn encode_to_vec<E: enc::Encode, C: Config>(val: E, config: C) -> Result<Vec<u8>, EncodeError> {
     let size = {
         let mut size_writer = enc::EncoderImpl::<_, C>::new(SizeWriter::default(), config);

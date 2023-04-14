@@ -1,6 +1,6 @@
 #![no_std]
 #![warn(missing_docs, unused_lifetimes)]
-#![cfg_attr(docsrs, feature(doc_cfg))]
+//#![cfg_attr(docsrs, feature(doc_cfg))]
 
 //! Bincode is a crate for encoding and decoding using a tiny binary
 //! serialization strategy.  Using it, you can easily go from having
@@ -75,8 +75,8 @@
 #![crate_name = "bincode"]
 #![crate_type = "rlib"]
 
-#[cfg(feature = "alloc")]
-extern crate alloc;
+//#[cfg(feature = "alloc")]
+//extern crate alloc;
 #[cfg(any(feature = "std", test))]
 extern crate std;
 
